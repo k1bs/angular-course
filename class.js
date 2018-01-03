@@ -34,6 +34,9 @@ var Student = /** @class */ (function (_super) {
     Student.prototype.whoAreYou = function () {
         return _super.prototype.whoAreYou.call(this) + " and I'm studying " + this.course;
     };
+    Student.prototype.test = function () {
+        console.log(this.firstName);
+    };
     return Student;
 }(Person));
 var alex = new Student('Alex', 'Kibler', 'Angular 5');

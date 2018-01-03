@@ -1,10 +1,12 @@
-class Person {
-  firstName = ''
-  lastName = ''
+interface Human {
+  firstName: string
+  lastName: string
+  name?: Function
+  isLate?(time: Date): Function
+}
 
-  constructor (firstName, lastName) {
-    this.firstName = firstName
-    this.lastName = lastName
+class Person implements Human {
+  constructor (public firstName, public lastName) {
   }
 
   name () {
@@ -26,6 +28,10 @@ class Student extends Person {
 
   whoAreYou () {
     return `${super.whoAreYou()} and I'm studying ${this.course}`
+  }
+
+  test () {
+    console.log(this.firstName)
   }
 }
 
