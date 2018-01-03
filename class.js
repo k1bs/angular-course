@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -10,8 +11,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Person = /** @class */ (function () {
     function Person(firstName, lastName) {
-        this.firstName = '';
-        this.lastName = '';
         this.firstName = firstName;
         this.lastName = lastName;
     }

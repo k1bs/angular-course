@@ -1,40 +1,27 @@
-interface Human {
-  firstName: string
-  lastName: string
-  name?: Function
-  isLate?(time: Date): Function
+function Student(config) {
+    return function (target) {
+        Object.defineProperty(target.prototype, 'course', {value: () => config.course})
+    }
 }
 
-class Person implements Human {
-  constructor (public firstName, public lastName) {
-  }
 
-  name () {
-    return `${this.firstName} ${this.lastName}`
-  }
 
-  whoAreYou () {
-    return `Hi, I'm ${this.name()}`
-  }
+@Student({
+    course: "angular3"
+})
+class Person {
+    constructor(private firstName, private lastName) {
+    }
+
+    public name() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    protected whoAreYou() {
+        return `Hi i'm ${this.name()}`;
+    }
 }
 
-class Student extends Person {
-  course = ''
-
-  constructor (firstName, lastName, course) {
-    super(firstName, lastName)
-    this.course = course
-  }
-
-  whoAreYou () {
-    return `${super.whoAreYou()} and I'm studying ${this.course}`
-  }
-
-  test () {
-    console.log(this.firstName)
-  }
-}
-
-let alex = new Student('Alex', 'Kibler', 'Angular 5')
-
-console.log(alex.whoAreYou())
+let asim = new Person("Asim", "Hussain");
+//noinspection TypeScriptUnresolvedFunction
+console.log(asim.course());
