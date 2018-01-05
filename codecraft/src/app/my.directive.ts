@@ -1,10 +1,11 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
-  selector: '[appMy]'
+  selector: '[ccCardHover]'
 })
-export class MyDirective {
-
-  constructor() { }
-
+export class CardHoverDirective {
+  constructor (private el: ElementRef,
+               private renderer: Renderer) {
+    renderer.setElementStyle(el.nativeElement, 'background-color', 'gray')
+  }
 }
