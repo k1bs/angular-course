@@ -1,10 +1,10 @@
-import { Directive, ElementRef, Renderer, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
   selector: '[ccCardHover]'
 })
 export class CardHoverDirective {
-  private isHovering: boolean = false
+  @HostBinding('class.card-outline-primary·') private isHovering: boolean = false
 
   constructor (private el: ElementRef,
                private renderer: Renderer) {
