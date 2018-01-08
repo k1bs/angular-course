@@ -15,3 +15,19 @@ export class MyPipe implements PipeTransform {
     return image
   }
 }
+
+
+@Pipe({
+  name: 'clean'
+})
+class CleanPipe {
+  transform(text: string, noNoWords: string) {
+    let array = noNoWords.split(',')
+    array.forEach(elem => {
+      if (text.indexOf(elem) === -1) {
+        text = text.replace(elem, '$%#@!')
+      }
+    })
+    return text
+  }
+}
