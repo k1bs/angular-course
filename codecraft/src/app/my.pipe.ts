@@ -4,9 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'my'
 })
 export class MyPipe implements PipeTransform {
-
-  transform(value: any, args?: any): any {
-    return null;
+  transform(value: string, fallback: string): any {
+    let image
+    image = value ? value : fallback
+    return image
   }
 
 }
